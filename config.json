@@ -1,0 +1,8 @@
+{
+  "DESIGN_NAME": "counter_4bit",
+  "VERILOG_FILES": "dir::src/4_bit_counter.v",
+  "CLOCK_PORT": "clk",
+  "CLOCK_PERIOD": 10,
+  "FP_SIZING": "absolute",
+  "DIE_AREA": "0 0 50 50"
+}
