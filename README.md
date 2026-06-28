@@ -23,6 +23,8 @@ here with real tool outputs and report numbers.
 | PDK                 | sky130A (SkyWater 130nm)           |
 
 ---
+## Flow Overview
+![RTL to GDS flow](docs/rtl_to_gds_flow_diagram.png)
 
 ## Port Description
 
@@ -44,7 +46,14 @@ here with real tool outputs and report numbers.
 │   └── tb_counter_4bit.v      # Self-checking testbench with tasks
 ├── config.json                # OpenLane flow configuration
 ├── docs/
-│   └── waveform.png           # GTKWave simulation waveform screenshot
+│   └── counter_gate_level_netlist.png          # AI simulated netlist screenshot
+│   └── counter_tb.vcd                          # VCD file showing the waveform
+│   └── layout.png                              # Final GDSII output screenshot
+│   └── rtl_to_gds_flow_diagram.png             # Flow and tools screenshot
+│   └── synth.png                               # Cell breakdown chart screenshot
+│   └── waveform.png                            # GTKWave simulation waveform screenshot
+
+    
 ├── results/
 │   ├── synthesis/
 │   │   └── counter_4bit.nl.v  # Gate-level netlist (post-synthesis)
@@ -120,6 +129,8 @@ Waveform shows (left to right):
 Converts RTL (`count <= count + 1`) into a gate-level netlist using
 real sky130 standard cells.
 
+![Counter Gate Level Netlist](docs/counter_gate_level_netlist.png)
+
 **Synthesis statistics (real numbers from `stat.rpt`):**
 
 | Metric | Value |
@@ -131,6 +142,8 @@ real sky130 standard cells.
 | Sequential area | 105.10 µm² (58.3% of cell area) |
 | Wires | 11 |
 | Wire bits | 14 |
+
+![Cell breakdown](docs/synth.png)
 
 **Cells instantiated in the netlist:**
 
@@ -226,6 +239,8 @@ Final layout generated at `results/gds/counter_4bit.gds`.
 | LVS result | Clean |
 
 ---
+
+![GDSII Layout](docs/layout.png)
 
 ## Flow Results Summary
 
